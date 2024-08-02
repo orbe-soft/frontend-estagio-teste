@@ -1,6 +1,6 @@
 ![logo](https://github.com/user-attachments/assets/126c245e-5923-4ea5-854a-6fd80aa28cfa)
 
-# Teste Técnico para Estágio em Frontend
+# Teste Técnico Frontend Estágio
 
 ## 👋 Introdução
 Bem-vindo(a) ao teste técnico para estagiários(as) de frontend da Orbesoft! Este desafio tem como objetivo avaliar suas habilidades iniciais como desenvolvedor(a) frontend.
