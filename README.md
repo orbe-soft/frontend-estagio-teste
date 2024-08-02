@@ -11,15 +11,17 @@ Desenvolva uma aplicação simples de e-commerce para a venda de bicicletas. A a
 ## 📌 Requisitos
 - [ ] **Catálogo de bicicletas**
   - [ ] Listagem com imagem, nome e preço.
+  - [ ] Busca por nome.
 
 - [ ] **Página de detalhes da bicicleta**
   - [ ] Imagem da bicicleta.
-  - [ ] Nome e preço.
+  - [ ] Nome, preço e descrição completa.
 
 ## 🛠️ Ferramentas e Tecnologias (Obrigatórias)
 - HTML
 - CSS
 - JavaScript
+- Axios
 
 ## 📋 Critérios de Avaliação
 - Responsividade.
