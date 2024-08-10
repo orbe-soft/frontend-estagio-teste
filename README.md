@@ -27,6 +27,10 @@ Desenvolva uma aplicação simples de e-commerce para a venda de bicicletas. A a
 - [Figma do Projeto](https://www.figma.com/design/TZXjpooM467GLW7UXpvf47/E-commerce---Bike?node-id=1-131)  
 - [API](https://www.postman.com/orbesoft-team/workspace/teste-frontend-jnior/overview)
 
+## 🔗 Links
+- [Figma do Projeto](https://www.figma.com/design/TZXjpooM467GLW7UXpvf47/E-commerce---Bike?node-id=1-131)  
+- [API](https://www.postman.com/orbesoft-team/workspace/teste-frontend-jnior/overview)
+
 ## 📋 Critérios de Avaliação
 - Responsividade.
 - Preocupação com usabilidade.
