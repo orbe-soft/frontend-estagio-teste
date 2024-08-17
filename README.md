@@ -27,9 +27,7 @@ Desenvolva uma aplicação simples de e-commerce para a venda de bicicletas. A a
 - [Figma do Projeto](https://www.figma.com/design/TZXjpooM467GLW7UXpvf47/E-commerce---Bike?node-id=1-131)  
 - [API](https://www.postman.com/orbesoft-team/workspace/teste-frontend-jnior/overview)
 
-## 🔗 Links
-- [Figma do Projeto](https://www.figma.com/design/TZXjpooM467GLW7UXpvf47/E-commerce---Bike?node-id=1-131)  
-- [API](https://www.postman.com/orbesoft-team/workspace/teste-frontend-jnior/overview)
+## Learn More
 
 ## 📋 Critérios de Avaliação
 - Responsividade.
@@ -43,7 +41,10 @@ Desenvolva uma aplicação simples de e-commerce para a venda de bicicletas. A a
 - Utilização de uma ferramenta de estilos como TailwindCSS ou Sass.
 - Implementação de boas práticas de SEO.
 
-## 📅 Entrega
-- Faça um fork deste repositório.
-- Crie uma branch com seu nome-sobrenome.
-- Abra um pull request (PR) para submeter sua solução.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
