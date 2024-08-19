@@ -1,6 +1,7 @@
 import { ShoppingCart } from "lucide-react"
 import Image from "next/image"
 import { FormatCurrency } from "../utils/functions/format-currency"
+import Link from "next/link"
 
 export type ProductInfoProps ={
    
@@ -26,7 +27,9 @@ export default function ProductCard({data}:dataProps){
     const Images = data.images.slice(0,2)
 
     return(
+        
         <div className="flex-auto basis-64 ">
+            <Link href={`/products/${data.id}`}>
           <div className="relative group *:">
           {Images.map(item=>(
                 <Image 
@@ -51,6 +54,8 @@ export default function ProductCard({data}:dataProps){
                 </div>
                 <p className="text-sm font-bold text-gray-800">{FormatCurrency(data.price)}</p>
             </div>
+            </Link>
         </div>
+        
     )
 }

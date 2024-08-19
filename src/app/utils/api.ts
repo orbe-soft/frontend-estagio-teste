@@ -1,0 +1,1 @@
+export const API = "api-frontend-test.orbesoft.com.br/api"

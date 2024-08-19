@@ -41,14 +41,12 @@ export default function Home() {
 
       const {data} = await axios.get('https://api-frontend-test.orbesoft.com.br/api/products')
       setFetchData(data)
-
      
     } 
     catch (error) {
       console.error(error);
     }
   }
-  console.log(fetchData?.pagination)
 
   function handlePagination(value){
 
@@ -62,7 +60,7 @@ export default function Home() {
     for (let index = 1; index <= pageQuantity; index++) {
       buttons.push(index)
       }
-      console.log(buttons)
+      
       return( 
         <>
           { 
@@ -76,7 +74,7 @@ export default function Home() {
 
   }
   return (
-    <main className="max-w-6xl mx-auto mt-24 px-4">
+    <main className="max-w-6xl w-auto flex-1 mx-auto mt-24 mb-6 px-4">
 
     <FilterProducts>
       <div className='gap-5 flex'>
@@ -92,9 +90,12 @@ export default function Home() {
         {fetchData ? fetchData.content.map((item) =>{
           
           
-          return(<ProductCard
+          return(
+          
+          <ProductCard
           
           data={item}
+
           />)
         }): "loading"
         }
