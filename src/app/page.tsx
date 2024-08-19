@@ -55,7 +55,7 @@ export default function Home() {
 
   function paginationIndex(){
     const buttons =[]
-    const pageQuantity = fetchData?.pagination.lastPage
+    const pageQuantity = fetchData!.pagination.lastPage
     
     for (let index = 1; index <= pageQuantity; index++) {
       buttons.push(index)
@@ -74,7 +74,7 @@ export default function Home() {
 
   }
   return (
-    <main className="max-w-6xl w-auto flex-1 mx-auto mt-24 mb-6 px-4">
+    <main className="w-full flex-1">
 
     <FilterProducts>
       <div className='gap-5 flex'>
@@ -85,7 +85,7 @@ export default function Home() {
 
       <FilterProducts.PriceFilter/>
     </FilterProducts>
-      <div className='flex flex-wrap gap-4 pt-6 '>
+      <div className='flex flex-wrap gap-4 pt-6 w-full'>
 
         {fetchData ? fetchData.content.map((item) =>{
           

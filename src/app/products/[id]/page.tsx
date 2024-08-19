@@ -4,8 +4,10 @@ import { ProductInfoProps } from "@/app/components/ProductCard";
 import { API } from "@/app/utils/api";
 import { FormatCurrency } from "@/app/utils/functions/format-currency";
 import axios from "axios";
+import { Undo2 } from "lucide-react";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Instagram, Pinterest,Facebook, Twitter } from "react-bootstrap-icons";
 
@@ -37,16 +39,28 @@ export default function Product({ params }: paramsProps ){
 
   console.log(fetchData)
     return(
-        <div className="flex flex-wrap [&>div]:flex-auto [&>div]:basis-[47%] max-w-6xl w-[-webkit-fill-available] h-full mx-auto  mt-24 mb-24 gap-14 px-4 max-h-[600px]">
+        <>
+            <div className="flex-1 mb-3">
+            <Link href={"/"} className="flex gap-2 items-center text-sm font-semibold text-slate-600">
+                    <Undo2 size={14}/>
+                    Voltar
+            </Link>
+            </div>
+            <div className="flex flex-wrap [&>div]:flex-auto [&>div]:basis-[47%]  w-[-webkit-fill-available] h-full  gap-14  min-h-[550px]">
             <div className="flex gap-4 ">
                 <div className="flex-1 flex-grow-[4]">
-                    <Image
-                    className="w-full h-full object-cover"
-                    src={selectImg}
-                    width={500}
-                    height={500}
-                    alt="Imagem Selecionada"
-                    />
+                    {
+                        fetchData ?
+                        <Image
+                        className="w-full h-full object-cover "
+                        src={selectImg ? selectImg : fetchData!.images[1].url}
+                        width={500}
+                        height={500}
+                        alt="Imagem Selecionada"
+                        />
+                        :
+                        "loading"
+                    }
                 </div>
                 <div className="flex flex-1 flex-col flex-grow-[1] gap-3 *:w-full">
                     {
@@ -57,13 +71,13 @@ export default function Product({ params }: paramsProps ){
                             height={1000}
                             alt="Imagem do produto"
                             onClick={()=>setSelectedImg(item.url)}
-                            className={`${item.url == selectImg ? "opacity-100" : "opacity-35"} transition-opacity hover:opacity-100`}
+                            className={`${item.url == selectImg ? "opacity-100" : "opacity-35"} transition-opacity hover:opacity-100 cursor-pointer`}
                             />
                         ))
                     }
                 </div>
             </div>
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-between gap-12">
               <div className="flex flex-col gap-12">
              <div>
              {
@@ -92,6 +106,7 @@ export default function Product({ params }: paramsProps ){
             </div>  
             <Button title="Adicionar ao Carrinho"/>
         </div>
-        </div>
+            </div>
+        </>
     )
 }
