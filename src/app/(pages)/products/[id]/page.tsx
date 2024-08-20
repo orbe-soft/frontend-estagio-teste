@@ -1,8 +1,8 @@
 "use client"
 import Button from "@/app/components/button";
-import { ProductInfoProps } from "@/app/components/ProductCard";
 import { API } from "@/app/utils/api";
 import { FormatCurrency } from "@/app/utils/functions/format-currency";
+import { ProductInfoProps } from "@/app/utils/types/Props";
 import axios from "axios";
 import { Undo2 } from "lucide-react";
 
@@ -28,7 +28,7 @@ export default function Product({ params }: paramsProps ){
   async function fetchProductData() {
     try {
 
-      const {data} = await axios.get(`https://${API}/products/${params.id}`)
+      const {data} = await axios.get(`${API}/products/${params.id}`)
       setFetchData(data)
      
     } 

@@ -8,9 +8,11 @@ type buttonProps= {
     children?:ReactNode 
     onClick:()=>void
     type: "next"| "prev"| "pagination"
+    selected?:boolean
+    value?:number
 }
 
-function Button({onClick,type, children}:buttonProps){
+function Button({onClick,type, selected,value}:buttonProps){
     const size = 20
     
     function buttonContent(){
@@ -21,11 +23,15 @@ function Button({onClick,type, children}:buttonProps){
             return <>Próximo <ArrowRight size={size}/>  </>
         }
         else if(type=="pagination"){
-            return children
+            return value
         }
     }
+    
+
+  
+  
     return(
-            <button className={` text-slate-500 hover:text-slate-800 flex gap-2 ${type=="pagination" ? "p-4":"p-0"}`} onClick={onClick}>
+            <button className={` text-slate-500 hover:text-slate-800 flex gap-2 rounded-md ${type=="pagination" ? "p-4":"p-0"} ${selected ? "bg-brandPrimary text-white": ""}`} onClick={onClick} >
               {buttonContent()}
             </button>
     )
