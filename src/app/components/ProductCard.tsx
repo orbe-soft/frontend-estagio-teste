@@ -2,24 +2,10 @@ import { ShoppingCart } from "lucide-react"
 import Image from "next/image"
 import { FormatCurrency } from "../utils/functions/format-currency"
 import Link from "next/link"
+import { ProductInfoProps } from "../utils/types/Props"
 
-export type ProductInfoProps ={
-   
-    id:string,
-    name:string,
-    brand:string,
-    images:imageProps[],
-    description:string,
-    price:number,
-   
-}
 type dataProps ={
     data:ProductInfoProps,
-}
-type imageProps = {
-    id:string,
-    url:string,
-    order_id:string,
 }
 
 export default function ProductCard({data}:dataProps){
@@ -48,7 +34,7 @@ export default function ProductCard({data}:dataProps){
             </div>
           </div>
             <div className="flex justify-between items-end pb-5">
-                <div className="min-w-[65%]">
+                <div className="max-w-[65%]">
                     <span className="text-xs text-gray-500">{data.brand}</span>
                     <p className="text-sm text-gray-800 overflow-hidden text-nowrap overflow-ellipsis max-w-52">{data.name}</p>
                 </div>

@@ -1,61 +1,49 @@
 "use client"
 
-import {z} from 'zod'
 import { FilterProducts } from "./components/FilterProducts";
-import { useEffect, useState } from 'react';
-import ProductCard, { ProductInfoProps } from './components/ProductCard';
+import { useState } from 'react';
+import ProductCard from './components/ProductCard';
 import { Pagination } from './components/pagination';
+import { API } from './utils/api';
+import { useQuery } from '@tanstack/react-query';
+import { DataPropsSchema } from './utils/Schemas/Schemas';
 
-type dataProps = {
-  content:ProductInfoProps[],
-  pagination:{
-  currentPage:number,
-  lastPage:number,
-  total:number,
-  limit:number,
-  }
-}
+
 export default function Home() {
-  const axios = require('axios').default;
-  const [fetchData, setFetchData] = useState<dataProps>();
+  const axios = require('axios').default
+  const[page,setPage]=useState<number>(1)
 
-  const ProductsSchema = z.object({
-    order:z.enum(['ASC','DESC']),
-    name:z.string(),
-    brand:z.string(),
+  const {data:ProductsResponse} = useQuery({
+    queryKey:['get-Products',page],
+    queryFn:()=>fetchUser() 
   })
 
-  const Schemar ={
-    order:'ASC',
-    name:'Caloi City Tour',
-    brand:'Caloi'
+  const fetchUser = async () => {
+    const response = await axios.get(`${API}/products?page=${page}`)
+    console.error(response.data);
+    return DataPropsSchema.parse(response.data)
+
   }
   
-  useEffect(()=>{
-    fetchProductData()
 
-  },[])
+  function handlePagination({type,value}:{type?:"prev"|"next" | "index",value:number}){
 
-  async function fetchProductData() {
-    try {
-
-      const {data} = await axios.get('https://api-frontend-test.orbesoft.com.br/api/products')
-      setFetchData(data)
-     
-    } 
-    catch (error) {
-      console.error(error);
+    if (type=="prev" && value >1){
+      setPage(value)
     }
-  }
-
-  function handlePagination(value){
-
+    else if(type == "next" && value <= ProductsResponse!.pagination.lastPage){
+      setPage(value)
+    }
+    else if (type=="index"){
+      setPage(value)
+      console.log(value)
+    }
   }
  
 
   function paginationIndex(){
     const buttons =[]
-    const pageQuantity = fetchData!.pagination.lastPage
+    const pageQuantity = ProductsResponse!.pagination.lastPage
     
     for (let index = 1; index <= pageQuantity; index++) {
       buttons.push(index)
@@ -65,16 +53,17 @@ export default function Home() {
         <>
           { 
             buttons.map(value =>(
-              <Pagination.Button key={value} type='pagination' onClick={()=>handlePagination("next")}>
-                {value}
-              </Pagination.Button>))
+              <Pagination.Button key={value} value={value} type='pagination' onClick={()=>handlePagination({type:"index",value:value})} selected={value === page ? true:false} />
+              ))
           }
         </>
     ) 
 
   }
+  
   return (
-    <main className="w-full flex-1">
+    
+    <main className="w-full flex-1 flex flex-col  pb-12">
 
     <FilterProducts>
       <div className='gap-5 flex'>
@@ -85,11 +74,11 @@ export default function Home() {
 
       <FilterProducts.PriceFilter/>
     </FilterProducts>
-      <div className='flex flex-wrap gap-4 pt-6 w-full'>
+      <div className='flex flex-wrap gap-4 pt-6 w-full flex-1'>
 
-        {fetchData ? fetchData.content.map((item) =>{
-          
-          
+        {
+          ProductsResponse ? ProductsResponse.content.map((item) =>{
+
           return(
           
           <ProductCard
@@ -102,17 +91,17 @@ export default function Home() {
 
       </div>
       <Pagination>
-        <Pagination.Button type='prev' onClick={()=>handlePagination("next")}/>
+        <Pagination.Button type='prev' onClick={()=>handlePagination({type:"prev",value:page - 1})}/>
           <div className='flex gap-2'>
             {
-             fetchData ?  
+             ProductsResponse ?  
              
              paginationIndex() 
              
              : "loading"
             }
           </div>
-        <Pagination.Button type='next' onClick={()=>handlePagination("prev")}/>
+        <Pagination.Button type='next' onClick={()=>handlePagination({type:"next",value:page+1})}/>
       </Pagination>
     </main>
   );
