@@ -1,1 +1,1 @@
-export const API = "api-frontend-test.orbesoft.com.br/api"
+export const API = "https://api-frontend-test.orbesoft.com.br/api"
