@@ -16,6 +16,9 @@ const config: Config = {
       colors:{
         'brandPrimary':'#F25D27',
       },
+      gridTemplateRows: {
+        'auto1fr': 'auto 1fr',
+      }
     },
   },
   plugins: [],

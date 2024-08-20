@@ -40,13 +40,8 @@ export default function Product({ params }: paramsProps ){
   console.log(fetchData)
     return(
         <>
-            <div className="flex-1 mb-3">
-            <Link href={"/"} className="flex gap-2 items-center text-sm font-semibold text-slate-600">
-                    <Undo2 size={14}/>
-                    Voltar
-            </Link>
-            </div>
-            <div className="flex flex-wrap [&>div]:flex-auto [&>div]:basis-[47%]  w-[-webkit-fill-available] h-full  gap-14  min-h-[550px]">
+            
+            <div className="flex flex-wrap [&>div]:flex-auto [&>div]:basis-[47%]  w-[-webkit-fill-available] h-full  gap-14  max-h-[550px]">
             <div className="flex gap-4 ">
                 <div className="flex-1 flex-grow-[4]">
                     {

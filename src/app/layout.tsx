@@ -19,11 +19,13 @@ export default function RootLayout({
   
   return (
     <html lang="pt-br" className={sora.className}>
-      <body >
-        <Header/>
+      <body>
+       <Header/>
+       <main className="overflow-auto flex-1 lg:mx-1">
         <Container>
           {children}
         </Container>
+       </main>
       </body>
     </html>
   );
