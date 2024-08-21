@@ -29,7 +29,7 @@ export default function Home() {
   useEffect(()=>{
      if(brandData){
         ProductsResponse?.content.forEach((item)=>{
-          setBrandData([...brandData, { brand: item.brand }])
+          setBrandData(item.brand)
 
         })
       }
