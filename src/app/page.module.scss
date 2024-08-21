@@ -1,0 +1,24 @@
+.conatinerWebsite {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  .containerMarg {
+    width: 77%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+  }
+
+  .listBrands {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    align-items: center;
+    gap: 2.5%;
+
+    &::last-child {
+      gap: 0px;
+    }
+  }
+}
