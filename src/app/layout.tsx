@@ -28,14 +28,18 @@ export default function RootLayout({
       
       <body>
       
-       <Header/>
-       <main className="overflow-auto flex-1 lg:mx-1 flex">
-        <Container>
-        <Providers>
-            {children}
+       
+       <Providers>
+        <Header/>
+          <main className="overflow-auto flex-1 lg:mx-1 flex">
+          <Container>
+          
+              {children}
+      
+          </Container>
+          </main>
         </Providers>
-        </Container>
-       </main>
+       
      
       </body>
     </html>
