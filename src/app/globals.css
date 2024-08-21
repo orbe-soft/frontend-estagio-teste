@@ -18,6 +18,11 @@ body {
   flex-direction: column;
 }
 
+.swiper-slide{
+  width: auto !important;
+  display: flex !important;
+
+}
 
 
 @layer utilities {

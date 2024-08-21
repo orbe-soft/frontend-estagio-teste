@@ -1,46 +1,59 @@
 "use client"
 
-import { FilterProducts } from "./components/FilterProducts";
-import { useState } from 'react';
+import { FilterProducts } from "./components/FilterComponents/FilterProducts";
+import { useEffect, useState } from 'react';
 import ProductCard from './components/ProductCard';
 import { Pagination } from './components/pagination';
 import { API } from './utils/api';
 import { useQuery } from '@tanstack/react-query';
 import { DataPropsSchema } from './utils/Schemas/Schemas';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { fetchProductData } from "./utils/hooks/hooks";
+import { QueryParams } from "./utils/types/intefaces";
+import { useBrandStore, useQueryParamsStore } from "./utils/hooks/useQueryParamsStore";
+
 
 
 export default function Home() {
-  const axios = require('axios').default
-  const[page,setPage]=useState<number>(1)
+
+  const{queryParams, setQueryParams}=useQueryParamsStore()
+
+  const{brandData, setBrandData}=useBrandStore()
 
   const {data:ProductsResponse} = useQuery({
-    queryKey:['get-Products',page],
-    queryFn:()=>fetchUser() 
+    queryKey:['get-Products',queryParams],
+    queryFn:()=>(fetchProductData(queryParams))
   })
-
-  const fetchUser = async () => {
-    const response = await axios.get(`${API}/products?page=${page}`)
-    console.error(response.data);
-    return DataPropsSchema.parse(response.data)
-
-  }
   
+  useEffect(()=>{
+     if(brandData){
+        ProductsResponse?.content.forEach((item)=>{
+          setBrandData([...brandData, { brand: item.brand }])
+
+        })
+      }
+
+      console.log(brandData)
+
+  },[ProductsResponse])
 
   function handlePagination({type,value}:{type?:"prev"|"next" | "index",value:number}){
 
-    if (type=="prev" && value >1){
-      setPage(value)
+    const newPage = value 
+
+    if (type=="prev" && value > 0){
+      setQueryParams({...queryParams,page:newPage})
     }
     else if(type == "next" && value <= ProductsResponse!.pagination.lastPage){
-      setPage(value)
+      setQueryParams({...queryParams,page:newPage})
     }
     else if (type=="index"){
-      setPage(value)
-      console.log(value)
+      setQueryParams({...queryParams,page:newPage})
+
     }
   }
  
-
   function paginationIndex(){
     const buttons =[]
     const pageQuantity = ProductsResponse!.pagination.lastPage
@@ -53,7 +66,7 @@ export default function Home() {
         <>
           { 
             buttons.map(value =>(
-              <Pagination.Button key={value} value={value} type='pagination' onClick={()=>handlePagination({type:"index",value:value})} selected={value === page ? true:false} />
+              <Pagination.Button key={value} value={value} type='pagination' onClick={()=>handlePagination({type:"index",value:value})} selected={value === queryParams.page ? true:false} />
               ))
           }
         </>
@@ -65,15 +78,8 @@ export default function Home() {
     
     <main className="w-full flex-1 flex flex-col  pb-12">
 
-    <FilterProducts>
-      <div className='gap-5 flex'>
-      <FilterProducts.BrandFilterTag name="TODAS AS MARCAS" FilterAll Selected/>
-      <FilterProducts.BrandFilterTag name="Caloi"/>
-      <FilterProducts.BrandFilterTag name="Krw"/>
-      </div>
+    {ProductsResponse ? <FilterProducts brandData={ProductsResponse.content}/>:"Loading"}
 
-      <FilterProducts.PriceFilter/>
-    </FilterProducts>
       <div className='flex flex-wrap gap-4 pt-6 w-full flex-1'>
 
         {
@@ -91,7 +97,7 @@ export default function Home() {
 
       </div>
       <Pagination>
-        <Pagination.Button type='prev' onClick={()=>handlePagination({type:"prev",value:page - 1})}/>
+        <Pagination.Button type='prev' onClick={()=>handlePagination({type:"prev",value:queryParams.page! - 1})}/>
           <div className='flex gap-2'>
             {
              ProductsResponse ?  
@@ -101,7 +107,7 @@ export default function Home() {
              : "loading"
             }
           </div>
-        <Pagination.Button type='next' onClick={()=>handlePagination({type:"next",value:page+1})}/>
+        <Pagination.Button type='next' onClick={()=>handlePagination({type:"next",value:queryParams.page! + 1})}/>
       </Pagination>
     </main>
   );
