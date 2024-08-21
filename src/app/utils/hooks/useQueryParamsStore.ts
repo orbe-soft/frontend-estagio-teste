@@ -1,5 +1,7 @@
 import { create } from "zustand";
-import { QueryParams } from "../types/intefaces";
+import { QueryParams } from "../types/intefaces"
+import { ProductInfoProps } from "../types/Props";
+
 
 type StateProps ={
     queryParams:QueryParams
@@ -9,10 +11,20 @@ type StateProps ={
 type brandDataProps ={
     brand:string
 }
+
 type brandStoreProps={
     brandData:brandDataProps[],
-    setBrandData:(data:brandDataProps[]) => void
+    setBrandData:(data:brandDataProps) => void
 }
+
+
+type cartStoreProps ={
+    cartData:ProductInfoProps[],
+    cartPriceTotal:number,
+    setTotalPrice:(value:number) => void
+    insertItemToCart:(cartData:ProductInfoProps) => void
+}
+
 
 const useQueryParamsStore = create<StateProps>((set)=>(
     {
@@ -22,10 +34,21 @@ const useQueryParamsStore = create<StateProps>((set)=>(
    
 ))
 
+
 const useBrandStore = create<brandStoreProps>((set)=>(
     {
         brandData:[],
-        setBrandData:(brandData) => set ({brandData:brandData})
+        setBrandData:(brandData) => set((state)=>({brandData:[...state.brandData,brandData]}))
     }
 ))
-export {useQueryParamsStore,useBrandStore}
+
+const useCartStore = create<cartStoreProps>((set)=>(
+    {
+        cartData:[],
+        cartPriceTotal:0,
+        setTotalPrice:(value) => set((state) =>({cartPriceTotal:state.cartPriceTotal + value})),
+        insertItemToCart:(item) => set((state)=>({cartData:[...state.cartData,item]}))
+    }
+))
+
+export {useQueryParamsStore,useBrandStore,useCartStore}

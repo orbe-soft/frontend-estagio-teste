@@ -3,14 +3,10 @@ import Image from "next/image"
 import { FormatCurrency } from "../utils/functions/format-currency"
 import { Minus, Plus } from "lucide-react"
 import { useState } from "react"
+import { ProductInfoProps } from "../utils/types/Props"
 
 type props={
-    data:{
-        name:string,
-        brand:string,
-        price:number,
-        image:string
-    }
+    data:ProductInfoProps
 }
 type CounterProps ={
     value:number
@@ -37,11 +33,14 @@ const ButtonCounter=()=>{
 }
 
 export default function CartItem({data}:props){
+
+    const image = data.images[1].url
+    
     return(
         <div className="flex justify-between  py-6 border-b border-slate-300 last-of-type:border-b-0">
             <div className="flex gap-6 items-center">
                 <Image
-                src={data.image}
+                src={image}
                 width={140}
                 height={140}
                 alt={"imagem da " + data.name}
