@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors:{
         'brandPrimary':'#F25D27',
+        'secondaryColor':'#F0F0F5'
       },
       gridTemplateRows: {
         'auto1fr': 'auto 1fr',
