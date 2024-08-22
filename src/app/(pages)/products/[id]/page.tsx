@@ -36,8 +36,6 @@ export default function Product({ params }: paramsProps ){
       console.error(error);
     }
   }
-
-  console.log(fetchData)
     return(
         <>
             
@@ -76,15 +74,14 @@ export default function Product({ params }: paramsProps ){
               <div className="flex flex-col gap-12">
              <div>
              {
-                fetchData ?
+                fetchData &&
               <>
                 <p className="text-slate-500 text-md mb-4">{fetchData.brand}</p>
                 <h1 className="font-light text-3xl text-slate-600 ">{fetchData.name}</h1>
                 <h3 className="font-semibold text-xl text-slate-600">{FormatCurrency(fetchData.price)}</h3>
                 <p className="font-normal text-slate-500 text-xs mt-4">*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
               </>
-                :
-                "Loading"
+                
                }
              </div>
              <div>

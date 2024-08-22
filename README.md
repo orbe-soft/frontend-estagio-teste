@@ -24,8 +24,7 @@ Desenvolver uma aplicação simples de e-commerce para a venda de bicicletas. A 
 - React Query
 - Axios
 - Zod
-- React Hook Form
-- Axios
+- Zustand
 
 ## 🔗 Links do Projeto
 - [Figma do Projeto](https://www.figma.com/design/TZXjpooM467GLW7UXpvf47/E-commerce---Bike?node-id=1-131)  

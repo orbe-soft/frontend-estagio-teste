@@ -71,12 +71,12 @@ export default function Home() {
     
     <main className="w-full flex-1 flex flex-col  pb-12">
 
-    {ProductsResponse ? <FilterProducts brandData={ProductsResponse.content}/>:"Loading"}
+    {ProductsResponse && <FilterProducts brandData={ProductsResponse.content}/>}
 
       <div className='flex flex-wrap gap-4 pt-6 w-full flex-1'>
 
         {
-          ProductsResponse ? ProductsResponse.content.map((item) =>{
+          ProductsResponse && ProductsResponse.content.map((item) =>{
 
           return(
           
@@ -85,23 +85,26 @@ export default function Home() {
           data={item}
 
           />)
-        }): "loading"
+        })
         }
 
       </div>
+     {
+      ProductsResponse &&
       <Pagination>
-        <Pagination.Button type='prev' onClick={()=>handlePagination({type:"prev",value:queryParams.page! - 1})}/>
-          <div className='flex gap-2'>
-            {
-             ProductsResponse ?  
-             
-             paginationIndex() 
-             
-             : "loading"
-            }
-          </div>
-        <Pagination.Button type='next' onClick={()=>handlePagination({type:"next",value:queryParams.page! + 1})}/>
-      </Pagination>
+      <Pagination.Button type='prev' onClick={()=>handlePagination({type:"prev",value:queryParams.page! - 1})}/>
+        <div className='flex gap-2'>
+          {
+           ProductsResponse ?  
+           
+           paginationIndex() 
+           
+           : "loading"
+          }
+        </div>
+      <Pagination.Button type='next' onClick={()=>handlePagination({type:"next",value:queryParams.page! + 1})}/>
+    </Pagination>
+     }
     </main>
   );
 }
