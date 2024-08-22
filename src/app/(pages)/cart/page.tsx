@@ -14,7 +14,7 @@ export default function Cart(){
     return(
         
            <>
-            <div className="flex-1 col-start-1 col-end-3 overflow-hidden flex flex-col gap-4">
+            <div className="flex-1 col-start-1  lg:col-end-3 overflow-hidden flex flex-col gap-4">
                 <div>
                     <h1 className="font-semibold uppercase text-slate-800 text-2xl">Seu Carrinho</h1>
                     <p className="font-light text-sm text-slate-500 mt-2">Total({cartData.length > 1 ? cartData.length + " Produtos" : cartData.length + " Produto"}) <span className="font-semibold">{FormatCurrency(cartPriceTotal)}</span></p>

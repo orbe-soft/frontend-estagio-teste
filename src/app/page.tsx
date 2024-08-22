@@ -1,16 +1,12 @@
 "use client"
 
 import { FilterProducts } from "./components/FilterComponents/FilterProducts";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ProductCard from './components/ProductCard';
 import { Pagination } from './components/pagination';
-import { API } from './utils/api';
 import { useQuery } from '@tanstack/react-query';
-import { DataPropsSchema } from './utils/Schemas/Schemas';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { fetchProductData } from "./utils/hooks/hooks";
-import { QueryParams } from "./utils/types/intefaces";
 import { useBrandStore, useQueryParamsStore } from "./utils/hooks/useQueryParamsStore";
 
 
@@ -33,9 +29,6 @@ export default function Home() {
 
         })
       }
-
-      console.log(brandData)
-
   },[ProductsResponse])
 
   function handlePagination({type,value}:{type?:"prev"|"next" | "index",value:number}){
