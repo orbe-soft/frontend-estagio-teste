@@ -1,0 +1,6 @@
+@use "../utils/variables" as *;
+
+header {
+    background-color: $white-color;
+    @apply flex justify-around items-center p-2;
+}

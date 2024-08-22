@@ -1,0 +1,28 @@
+@use './components/header.scss';
+@use './components/card.scss';
+@use './components/search.scss';
+
+@use './components/buttons/add-cart-btn.scss';
+@use './components/buttons/cart-btn.scss';
+
+@use './pages/cart.scss';
+@use './pages/product.scss';
+@use './pages/catalog.scss';
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+  background-color: #F0F0F5;
+ @apply flex justify-center;
+}
+
+.container-brand-nav {
+  @apply flex justify-between items-center;
+}
+
+.brand-nav ul {
+  @apply flex gap-2;
+}
