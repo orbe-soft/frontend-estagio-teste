@@ -1,7 +1,12 @@
 export interface QueryParams {
-    page?: number;
-    order?: "ASC" | "DESC";
-    limit?: number;
-    name?: string;
-    brand?: string;
+    id?:string
+    page?: number
+    order?: "ASC" | "DESC"
+    limit?: number
+    name?: string
+    brand?: string
   }
+ 
+export interface queryIdParams {
+    id?: string
+}
