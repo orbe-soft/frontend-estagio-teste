@@ -35,15 +35,12 @@ export default function InputSearch(){
       })
 
       function handleSearch(name:string){
-
+        setOpenMenu(true)
         setParams({name:name})
 
       }
 
-      function clearSearchInput(){
-        setOpenMenu(false)
-
-      }
+     
 
     return(
         <div className={`py-3 px-4 bg-gray-100 rounded-lg flex items-center lg:min-w-72   relative ${openMenu && "rounded-b-none"}`}  
@@ -55,7 +52,7 @@ export default function InputSearch(){
 
             {
                 openMenu &&
-                <div ref={ref} className="position absolute mt-10 inset-0 h-max 0 bg-gray-100  rounded-sm p-2 z-10 flex flex-col gap-2">
+                <div ref={ref} className="position absolute mt-10 inset-0 h-max 0 bg-gray-100  rounded-b-lg p-2 z-10 flex flex-col gap-2">
                 {
                 searchResponse ? 
                     searchResponse.content.map(item =>(

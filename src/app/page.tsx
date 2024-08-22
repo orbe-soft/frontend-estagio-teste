@@ -95,11 +95,8 @@ export default function Home() {
       <Pagination.Button type='prev' onClick={()=>handlePagination({type:"prev",value:queryParams.page! - 1})}/>
         <div className='flex gap-2'>
           {
-           ProductsResponse ?  
-           
+           ProductsResponse &&  
            paginationIndex() 
-           
-           : "loading"
           }
         </div>
       <Pagination.Button type='next' onClick={()=>handlePagination({type:"next",value:queryParams.page! + 1})}/>
