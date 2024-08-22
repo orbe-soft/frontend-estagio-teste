@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background: #F0F0F5;
+}
+
+*{
+  box-sizing: content-box;
+}
+
+body {
+  background: var(--background);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper-slide{
+  width: auto !important;
+  display: flex !important;
+
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar {
+  width: 4px;
+ 
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3rem;
+  
+  background-color: #cecece;
+}
