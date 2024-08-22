@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { fetchData } from "../services/api";
 import { useSearchParams } from "next/navigation";
 
@@ -18,7 +18,11 @@ export default function Product() {
       }
     };
     fetchDataAsync();
-  }, []);
+  }, [searchParams]);
 
-  return <div>{JSON.stringify(data)}</div>;
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <div>{JSON.stringify(data)}</div>
+    </Suspense>
+  );
 }

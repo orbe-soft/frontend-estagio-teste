@@ -1,25 +1,10 @@
 "use client";
 
-import { fetchData } from "@/app/services/api";
 import { useEffect, useState } from "react";
 
-export default function Seatch() {
-  const [value, setValue] = useState("Caloi S");
-  const [data, setData] = useState([]);
-  
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const response = await fetchData(`/products?name=${value}`);
-        setData(response);
-      } catch (error) {
-        console.error("Erro ao buscar os dados", error);
-      }
-    };
-    fetchDataAsync();
-  }, []);
-  
-  console.log(data)
+export default function Search() {
+  const [value, setValue] = useState("");
+
   return (
     <>
     <input
