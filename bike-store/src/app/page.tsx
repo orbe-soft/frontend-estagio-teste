@@ -1,71 +1,86 @@
 "use client";
 
 import { fetchData } from "@/app/services/api";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Product } from "./models/products";
+import { useSearchParams } from "next/navigation";
 import Card from "@/app/components/card/card";
-import Pagination from "@/app/components/pagination/pagination";
-import Link from "next/link";
 import OrderDropdown from "./components/order-dropdown/order-dropdown";
+import BrandNav from "./components/brand-nav/band-nav";
+import Loading from "./loading";
 
 export default function Catalog() {
-
   const [data, setData] = useState([]);
-  
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const searchParams = useSearchParams();
+
   useEffect(() => {
+    const brand = searchParams.get("brand") || "todas as marcas";
+    setSelectedBrand(brand);
+
     const fetchDataAsync = async () => {
       try {
         const response = await fetchData("/products");
-        setData(response.content);
+        if (brand === "todas as marcas") {
+          setData(response.content);
+        }
       } catch (error) {
-        console.error("Erro ao buscar os dados", error);
+        console.error(error);
+        throw new Error("Erro ao buscar os dados");
       }
     };
     fetchDataAsync();
-  }, []);
+  }, [searchParams]);
 
-  const brands = ["todas as marcas", "caloi", "krw"];
+  const getDataByBrand = async (brand: string) => {
+    setSelectedBrand(brand);
+    try {
+      if (brand && brand !== "todas as marcas") {
+        const response = await fetchData(`/products?brand=${brand}`);
+        setData(response.content);
+      }
+    } catch (error) {
+      console.error(error);
+      throw new Error("Erro ao buscar os dados");
+    }
+  };
+
+  const sortDataByPrice = async (order: string) => {
+    try {
+      const response = await fetchData(`/products?order=${order}`);
+      setData(response.content);
+    } catch (error) {
+      console.error(error);
+      throw new Error("Erro ao buscar os dados");
+    }
+  };
 
   return (
-    <div className="container">
+    <div className="grid grid-rows-1">
       <div className="container-brand-nav">
-        <nav className="brand-nav">
-          <ul>
-            {brands.map((brand) => (
-              <li key={brand}>
-                <Link
-                  href={{
-                    query: { brand: brand },
-                  }}
-                >
-                  {brand}
-                </Link>
+        <BrandNav onBrandChange={getDataByBrand} />
+        <div>
+          <OrderDropdown onOrderChange={sortDataByPrice} />
+        </div>
+      </div>
+      <div className="container-catalog">
+        <Suspense fallback={<Loading />}>
+          <ul className="products-list">
+            {data.map((item: Product) => (
+              <li key={item.id}>
+                <Card
+                  id={item.id}
+                  brand={item.brand}
+                  product_name={item.name}
+                  price={item.price}
+                  image={item.images[0].url}
+                />
               </li>
             ))}
           </ul>
-        </nav>
-          <div>
-            <OrderDropdown />
-          </div>
+        </Suspense>
       </div>
-      <div className="container-catalog">
-        <ul className="products-list">
-          {data.map((item: Product) => (
-            <li key={item.id}>
-              <Card
-                id={item.id}
-                brand={item.brand}
-                product_name={item.name}
-                price={item.price}
-                image={item.images[0].url}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="container-pagination">
-        <Pagination />
-      </div>
+      <div className="container-pagination"></div>
     </div>
   );
 }

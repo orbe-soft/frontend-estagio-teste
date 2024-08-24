@@ -1,0 +1,7 @@
+.container-product {
+  @apply grid grid-cols-2;
+}
+
+.container-product-description {
+  @apply grid grid-flow-row;
+}

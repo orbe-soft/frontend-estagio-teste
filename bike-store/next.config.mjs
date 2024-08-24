@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    env: {
-        API_URL: process.env.API_URL
-    },
-    images: {
-        domains: ['loremflickr.com']
-    }
+  reactStrictMode: true,
+  env: {
+    API_URL: process.env.API_URL,
+  },
+  images: {
+    domains: ["loremflickr.com"],
+  },
 };
 
 export default nextConfig;

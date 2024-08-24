@@ -1,9 +1,7 @@
 export default function Seatch() {
-    return (
-        <div>
-            <div>
-                Pagination
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      <div>Pagination</div>
+    </div>
+  );
 }

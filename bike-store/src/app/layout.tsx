@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={sora.className}>
-        <Header/>
+        <Header />
         <main>{children}</main>
       </body>
     </html>
