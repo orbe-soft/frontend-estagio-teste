@@ -12,6 +12,7 @@ export default function AddCartButton(props: any) {
             width={255}
             height={314}
             alt={`Bicicleta ${props.product_name}`}
+            priority={true}
           />
         </div>
         <div className="container-info-product-card">

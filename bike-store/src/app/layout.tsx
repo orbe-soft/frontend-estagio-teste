@@ -8,6 +8,7 @@ const sora = Sora({ subsets: ["latin"], weight: ["300", "400", "600", "700"] });
 export const metadata: Metadata = {
   title: "Bike Store",
   description: "Teste Front End Orbe Soft",
+  icons: ["/favicon.ico"],
 };
 
 export default function RootLayout({

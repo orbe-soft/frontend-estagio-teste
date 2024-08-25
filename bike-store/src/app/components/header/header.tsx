@@ -9,10 +9,12 @@ export default function Header() {
       <div className="container-logo">
         <Link href={"/"}>
           <Image
-            src={"/logo.png"}
-            width={104}
-            height={61}
+            className="logo"
+            src={"/logo.webp"}
+            width={740}
+            height={440}
             alt="Bike Store Logo"
+            priority={true}
           />
         </Link>
       </div>

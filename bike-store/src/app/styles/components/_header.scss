@@ -4,3 +4,8 @@ header {
   background-color: $white-color;
   @apply flex justify-around items-center p-2;
 }
+
+.logo {
+  width: 104px;
+  height: auto;
+}

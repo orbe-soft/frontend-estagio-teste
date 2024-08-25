@@ -5,7 +5,12 @@ const nextConfig = {
     API_URL: process.env.API_URL,
   },
   images: {
-    domains: ["loremflickr.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "loremflickr.com",
+      },
+    ],
   },
 };
 

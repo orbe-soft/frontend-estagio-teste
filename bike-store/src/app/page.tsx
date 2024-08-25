@@ -11,29 +11,33 @@ import Loading from "./loading";
 
 export default function Catalog() {
   const [data, setData] = useState([]);
-  const [selectedBrand, setSelectedBrand] = useState("");
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const brand = searchParams.get("brand") || "todas as marcas";
-    setSelectedBrand(brand);
+    const bicycleName = searchParams.get("name");
 
     const fetchDataAsync = async () => {
       try {
         const response = await fetchData("/products");
+
         if (brand === "todas as marcas") {
           setData(response.content);
+        }
+
+        if (bicycleName) {
+          searchDataByName(bicycleName);
         }
       } catch (error) {
         console.error(error);
         throw new Error("Erro ao buscar os dados");
       }
     };
+
     fetchDataAsync();
   }, [searchParams]);
 
   const getDataByBrand = async (brand: string) => {
-    setSelectedBrand(brand);
     try {
       if (brand && brand !== "todas as marcas") {
         const response = await fetchData(`/products?brand=${brand}`);
@@ -48,6 +52,16 @@ export default function Catalog() {
   const sortDataByPrice = async (order: string) => {
     try {
       const response = await fetchData(`/products?order=${order}`);
+      setData(response.content);
+    } catch (error) {
+      console.error(error);
+      throw new Error("Erro ao buscar os dados");
+    }
+  };
+
+  const searchDataByName = async (name: string) => {
+    try {
+      const response = await fetchData(`/products?name=${name}`);
       setData(response.content);
     } catch (error) {
       console.error(error);
@@ -80,7 +94,6 @@ export default function Catalog() {
           </ul>
         </Suspense>
       </div>
-      <div className="container-pagination"></div>
     </div>
   );
 }
