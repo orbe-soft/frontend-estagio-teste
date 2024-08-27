@@ -1,0 +1,42 @@
+.containerProduct {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  gap: 1.5rem;
+
+  margin-bottom: 5rem;
+
+  .product {
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-complement);
+  }
+
+  .price {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      font-size: 0.85rem;
+      color: var(--text-title);
+
+      &:nth-of-type(2) {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .containerProduct {
+    align-items: center;
+    justify-content: center;
+
+    gap: 3rem;
+  }
+}
