@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { fetchData } from "../../services/api";
 import { Product } from "../../models/products";
 import Link from "next/link";
+import SliderImg from "@/app/components/slider-img/slider-img";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   return (
@@ -11,7 +12,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       </nav>
       <div className="container-product">
         <Suspense fallback={<div>Carregando...</div>}>
-          <aside className="container-product-images">Imagem do produto</aside>
+          <aside className="container-product-images">
+            <SliderImg />
+          </aside>
           <main className="container-product-description">
             <ProductInfo id={params.id} />
           </main>

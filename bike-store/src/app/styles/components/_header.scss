@@ -2,10 +2,27 @@
 
 header {
   background-color: $white-color;
-  @apply flex justify-around items-center p-2;
+  @apply flex justify-between items-center p-2 flex-wrap sm:justify-around content-center;
 }
 
 .logo {
   width: 104px;
   height: auto;
+}
+
+.container-search {
+  flex: 0 0 auto;
+}
+
+.container-search {
+  flex: 1 0 auto; /* Allow search container to expand */
+  @apply order-1 pt-4 min-[450px]:order-none min-[450px]:p-0;
+}
+
+.container-logo {
+  flex: 0 0 auto; /* Ensure logo doesn't expand */
+}
+
+.container-cart-btn {
+  flex: 0 0 auto; /* Ensure cart button doesn't expand */
 }

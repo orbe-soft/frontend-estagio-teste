@@ -1,8 +1,10 @@
-.container-brand-nav,
-.container-return-main {
-  @apply mt-10 mb-6 p-10;
+@import "../utils/mixins";
+
+.container-brand-nav {
+  @include nav-container;
+  @apply grid grid-cols-1 gap-4 md:flex md:justify-between;
 }
 
 .products-list {
-  @apply flex justify-center flex-wrap gap-6;
+  @apply grid grid-cols-2 min-[450px]:grid-cols-3 md:grid-cols-4 gap-9;
 }

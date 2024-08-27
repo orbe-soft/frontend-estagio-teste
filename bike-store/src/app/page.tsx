@@ -29,7 +29,7 @@ export default function Catalog() {
           searchDataByName(bicycleName);
         }
       } catch (error) {
-        console.error(error);
+        console.error("Erro ao buscar os dados", error);
         throw new Error("Erro ao buscar os dados");
       }
     };
@@ -44,7 +44,7 @@ export default function Catalog() {
         setData(response.content);
       }
     } catch (error) {
-      console.error(error);
+      console.error("Erro ao buscar os dados por marcas",error);
       throw new Error("Erro ao buscar os dados");
     }
   };
@@ -54,7 +54,7 @@ export default function Catalog() {
       const response = await fetchData(`/products?order=${order}`);
       setData(response.content);
     } catch (error) {
-      console.error(error);
+      console.error("Erro ao buscar os dados por preço",error);
       throw new Error("Erro ao buscar os dados");
     }
   };
@@ -64,24 +64,22 @@ export default function Catalog() {
       const response = await fetchData(`/products?name=${name}`);
       setData(response.content);
     } catch (error) {
-      console.error(error);
+      console.error("Erro ao buscar os dados por nome",error);
       throw new Error("Erro ao buscar os dados");
     }
   };
 
   return (
-    <div className="grid grid-rows-1">
+    <>
       <div className="container-brand-nav">
         <BrandNav onBrandChange={getDataByBrand} />
-        <div>
-          <OrderDropdown onOrderChange={sortDataByPrice} />
-        </div>
+        <OrderDropdown onOrderChange={sortDataByPrice} />
       </div>
       <div className="container-catalog">
         <Suspense fallback={<Loading />}>
           <ul className="products-list">
             {data.map((item: Product) => (
-              <li key={item.id}>
+              <li className="card-container" key={item.id}>
                 <Card
                   id={item.id}
                   brand={item.brand}
@@ -94,6 +92,6 @@ export default function Catalog() {
           </ul>
         </Suspense>
       </div>
-    </div>
+    </>
   );
 }

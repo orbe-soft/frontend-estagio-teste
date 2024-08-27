@@ -9,12 +9,12 @@ export default function OrderDropdown({ onOrderChange }: any) {
   };
 
   return (
-    <>
+    <div>
       <button onClick={() => setIsOpen(!isOpen)}>Organizar por</button>
       <ul style={{ display: isOpen ? "block" : "none" }}>
         <li onClick={() => handleOrderChange("DESC")}>Preço: Maior - menor</li>
         <li onClick={() => handleOrderChange("ASC")}>Preço: Menor - maior</li>
       </ul>
-    </>
+    </div>
   );
 }

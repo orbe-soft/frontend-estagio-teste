@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { CiSearch } from "react-icons/ci";
+import SubmitBtn from "../buttons/submit-btn/submit-btn";
 
 export default function Search() {
   const [value, setValue] = useState("");
@@ -9,12 +11,15 @@ export default function Search() {
 
   function OnSearch(event: React.FormEvent) {
     event.preventDefault();
-    router.push(`?name=${value}`);
+    if(value) {
+      router.push(`?name=${value}`);
+    }
   }
 
   return (
     <>
       <form className="search-form-input" onSubmit={OnSearch}>
+        <div className="relative">
         <input
           className="search-input"
           type="text"
@@ -24,6 +29,9 @@ export default function Search() {
             setValue(event.target.value);
           }}
         />
+        <CiSearch size={24} color="#61747f" className="absolute top-2 right-4 hidden min-[450px]:block" cursor={"pointer"} onClick={OnSearch}/>
+        </div>
+        <SubmitBtn/>
       </form>
     </>
   );

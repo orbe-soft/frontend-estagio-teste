@@ -1,13 +1,15 @@
-@use "./components/header.scss";
-@use "./components/card.scss";
-@use "./components/search.scss";
+@use "./utils/variables" as *;
+@use "components/header.scss";
+@use "components/card.scss";
+@use "components/search.scss";
+@use "components/brand-nav.scss";
 
-@use "./components/buttons/add-cart-btn.scss";
-@use "./components/buttons/cart-btn.scss";
+@use "components/buttons/add-cart-btn.scss";
+@use "components/buttons/cart-btn.scss";
 
-@use "./pages/cart.scss";
-@use "./pages/product.scss";
-@use "./pages/catalog.scss";
+@use "pages/cart.scss";
+@use "pages/product.scss";
+@use "pages/catalog.scss";
 
 @tailwind base;
 @tailwind components;
@@ -15,13 +17,9 @@
 
 main {
   background-color: #f0f0f5;
-  @apply container min-w-full min-h-screen;
+  @apply container min-w-full min-h-screen p-6;
 }
 
-.container-brand-nav {
-  @apply flex justify-between items-center;
-}
-
-.brand-nav ul {
-  @apply flex gap-2;
+li, p {
+  color: $text-color;
 }

@@ -1,0 +1,24 @@
+@use "../utils/variables" as *;
+@import "../utils/mixins";
+
+.brand-nav ul {
+  @apply flex gap-2;
+}
+
+.brand-nav > ul {
+  gap: 30;
+}
+
+.brand-nav > ul > li:nth-child(1) {
+  text-transform: uppercase;
+}
+
+.brand-nav > ul > li:nth-child(2) {
+  text-transform: capitalize;
+}
+
+.active {
+  color: $title-color;
+  font-weight: 600;
+  border-bottom: 4px solid $brand-orange;
+}
