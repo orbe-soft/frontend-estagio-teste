@@ -10,7 +10,7 @@ export function Brands() {
   const handleBrandClick = (brand) => {
     setProductBrandsSelected(brand);
     if (window.innerWidth <= 730) {
-      setIsMenuOpen(false); // Fecha o menu em telas menores
+      setIsMenuOpen(false);
     }
   };
 
