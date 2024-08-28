@@ -1,3 +1,5 @@
+@use "../utils/variables" as *;
+
 .card {
   @apply w-40 md:w-52 lg:w-64;
 
@@ -16,11 +18,10 @@
 
     ul {
       font-size: 14px;
-      display: flex;
-      justify-content: space-between;
+      @apply flex flex-col lg:flex-row justify-between;
 
       li {
-        color: black;
+        color: $black-color;
       }
 
       li:nth-child(2) {
