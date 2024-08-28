@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 
 export default function OrderDropdown({ onOrderChange }: any) {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,12 +10,26 @@ export default function OrderDropdown({ onOrderChange }: any) {
   };
 
   return (
-    <div>
-      <button onClick={() => setIsOpen(!isOpen)}>Organizar por</button>
-      <ul style={{ display: isOpen ? "block" : "none" }}>
-        <li onClick={() => handleOrderChange("DESC")}>Preço: Maior - menor</li>
-        <li onClick={() => handleOrderChange("ASC")}>Preço: Menor - maior</li>
-      </ul>
+    <div className="container-dropdown">
+      <div className="container-dropdown-btn">
+        <button onClick={() => setIsOpen(!isOpen)}>
+          Organizar por{" "}
+          <span>
+            <FiChevronDown />
+          </span>
+        </button>
+      </div>
+      <div
+        className="container-order-list"
+        style={{ display: isOpen ? "flex" : "none" }}
+      >
+        <button onClick={() => handleOrderChange("DESC")}>
+          Preço: Maior - menor
+        </button>
+        <button onClick={() => handleOrderChange("ASC")}>
+          Preço: Menor - maior
+        </button>
+      </div>
     </div>
   );
 }

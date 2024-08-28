@@ -1,0 +1,32 @@
+@use "../utils/variables" as *;
+
+.container-dropdown {
+  position: relative;
+
+  .container-dropdown-btn {
+    color: $text-color;
+
+    button {
+      @apply flex text-center items-center gap-2;
+    }
+  }
+
+  .container-order-list {
+    position: absolute;
+    flex-direction: column;
+    min-width: 176px;
+    margin-top: 4px;
+    background-color: white;
+    border-radius: 4px;
+    gap: 4px;
+    padding: 14px;
+    box-shadow: 0 4px 12px 0 rgb(0, 0, 0, 0.1);
+
+    button {
+      color: $text-color;
+      width: 170px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+}

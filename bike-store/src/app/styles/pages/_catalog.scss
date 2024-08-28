@@ -6,5 +6,9 @@
 }
 
 .products-list {
-  @apply grid grid-cols-2 min-[450px]:grid-cols-3 md:grid-cols-4 gap-9;
+  @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-9;
+
+  .container-card {
+    @apply w-full;
+  }
 }

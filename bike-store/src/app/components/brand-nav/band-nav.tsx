@@ -9,7 +9,7 @@ export default function BrandNav({ onBrandChange }: any) {
         {brands.map((brand) => (
           <li key={brand}>
             <Link
-            className="active"
+              className="active"
               href={{
                 query: { brand: brand },
               }}

@@ -44,7 +44,7 @@ export default function Catalog() {
         setData(response.content);
       }
     } catch (error) {
-      console.error("Erro ao buscar os dados por marcas",error);
+      console.error("Erro ao buscar os dados por marcas", error);
       throw new Error("Erro ao buscar os dados");
     }
   };
@@ -54,7 +54,7 @@ export default function Catalog() {
       const response = await fetchData(`/products?order=${order}`);
       setData(response.content);
     } catch (error) {
-      console.error("Erro ao buscar os dados por preço",error);
+      console.error("Erro ao buscar os dados por preço", error);
       throw new Error("Erro ao buscar os dados");
     }
   };
@@ -64,7 +64,7 @@ export default function Catalog() {
       const response = await fetchData(`/products?name=${name}`);
       setData(response.content);
     } catch (error) {
-      console.error("Erro ao buscar os dados por nome",error);
+      console.error("Erro ao buscar os dados por nome", error);
       throw new Error("Erro ao buscar os dados");
     }
   };
@@ -79,7 +79,7 @@ export default function Catalog() {
         <Suspense fallback={<Loading />}>
           <ul className="products-list">
             {data.map((item: Product) => (
-              <li className="card-container" key={item.id}>
+              <li className="container-card" key={item.id}>
                 <Card
                   id={item.id}
                   brand={item.brand}

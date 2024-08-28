@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function AddCartButton(props: any) {
   return (
-    <>
+    <div className="card">
       <Link href={`/product/${props.id}`}>
         <div className="container-card-image">
           <Image
@@ -13,7 +13,7 @@ export default function AddCartButton(props: any) {
             height={480}
             alt={`Bicicleta ${props.product_name}`}
             priority={true}
-            />
+          />
         </div>
         <div className="container-info-product-card">
           <h2>{props.brand}</h2>
@@ -23,6 +23,6 @@ export default function AddCartButton(props: any) {
           </ul>
         </div>
       </Link>
-      </>
+    </div>
   );
 }

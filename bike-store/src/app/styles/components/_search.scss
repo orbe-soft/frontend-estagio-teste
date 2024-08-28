@@ -2,14 +2,10 @@
 
 .search-form-input {
   @apply flex justify-between min-[450px]:justify-center;
-}
 
-.search-form-input > button {
-  @apply min-[450px]:hidden;
-}
-
-.search-input {
-  color: $text-color;
-  background-color: #f3f5f6;
-  @apply w-64 py-2 px-4 rounded-lg;
+  .search-input {
+    color: $text-color;
+    background-color: #f3f5f6;
+    @apply w-64 md:w-[352px] h-[44px] py-2 px-4 rounded-lg;
+  }
 }

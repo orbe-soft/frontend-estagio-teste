@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Bike Store",
   description: "Teste Front End Orbe Soft",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
     other: {
-      rel: 'preconnect',
-      url: 'https://api-frontend-test.orbesoft.com.br'
-    }
+      rel: "preconnect",
+      url: "https://api-frontend-test.orbesoft.com.br",
+    },
   },
 };
 
