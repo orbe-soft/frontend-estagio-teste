@@ -18,7 +18,7 @@
   .product-brand {
     @apply text-base mb-3;
   }
-  
+
   .product-name {
     @apply text-3xl mb-2;
   }
@@ -31,11 +31,9 @@
   .product-promotion {
     @apply text-sm;
   }
-
 }
 
 .product-description {
-  
   h3 {
     text-transform: uppercase;
   }

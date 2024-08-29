@@ -5,8 +5,8 @@ export default function AddCartButton() {
   return (
     <>
       <button className="add-cart-button">
-      <FiShoppingBag size={24}/>
-      <span>Adicionar ao carrrinho</span>
+        <FiShoppingBag size={24} />
+        <span>Adicionar ao carrrinho</span>
       </button>
     </>
   );

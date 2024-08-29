@@ -1,19 +1,17 @@
 .slider-container {
-    
-    .product-image {
-        width: 82px;
-        height: 99px;
-        margin: 0 12px 12px 0;
-        object-fit: cover;
-        float: left;
-    }
+  .product-image {
+    width: 82px;
+    height: 99px;
+    margin: 0 12px 12px 0;
+    object-fit: cover;
+    float: left;
+  }
 
-    :first-child {
-        width: 486px;
-        height: 580px;
-        float: left;
-        margin-right: 12px;
-        padding: 0;
-    }
-
+  :first-child {
+    width: 486px;
+    height: 580px;
+    float: left;
+    margin-right: 12px;
+    padding: 0;
+  }
 }

@@ -1,13 +1,13 @@
 @use "../../utils/variables" as *;
 
 .add-cart-button {
-    color: $white-color;
-    background-color: $brand-orange;
-    @apply flex px-14 p-3 gap-4 rounded;
-    
-    span {
-        text-transform: uppercase;
-        font-weight: 600;
-        flex-basis: 1;
-    }
+  color: $white-color;
+  background-color: $brand-orange;
+  @apply flex px-14 p-3 gap-4 rounded;
+
+  span {
+    text-transform: uppercase;
+    font-weight: 600;
+    flex-basis: 1;
+  }
 }

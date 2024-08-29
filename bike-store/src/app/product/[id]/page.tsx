@@ -42,7 +42,7 @@ async function ProductInfo(props: { id: string }) {
           R$900,00.
         </p>
       </div>
-      
+
       <div className="product-description">
         <h3>Descrição</h3>
         <p>{product.description}</p>
