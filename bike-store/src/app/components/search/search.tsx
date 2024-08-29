@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import SubmitBtn from "../buttons/submit-btn/submit-btn";
+import SubmitBtn from "../buttons/submit-button/submit-button";
 
 export default function Search() {
   const [value, setValue] = useState("");

@@ -9,11 +9,12 @@ export default async function AsNavFor(props: { id: string }) {
     <div className="slider-container">
       {product.images.map((item) => (
         <Image
+          className="product-image"
           key={item.id}
           src={item.url}
-          width={200}
-          height={200}
-          alt={""}
+          width={640}
+          height={480}
+          alt={"imagem do produto"}
         ></Image>
       ))}
     </div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Search from "../search/search";
-import CartButton from "../buttons/cart-btn/cart-btn";
+import CartButton from "../buttons/cart-buton/cart-button";
 import Link from "next/link";
 
 export default function Header() {

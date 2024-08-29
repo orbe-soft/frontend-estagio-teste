@@ -1,6 +1,6 @@
 import { CiSquareChevRight } from "react-icons/ci";
 
-export default function SubmitBtn() {
+export default function SubmitButton() {
   return (
     <>
       <button type="submit" className="submit-btn pr-2">

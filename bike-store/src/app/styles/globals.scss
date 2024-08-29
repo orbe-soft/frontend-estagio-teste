@@ -4,6 +4,8 @@
 @use "components/search.scss";
 @use "components/brand-nav.scss";
 @use "components/order-dropdown.scss";
+@use "components/social-media-icons.scss";
+@use "components/slider-image.scss";
 
 @use "components/buttons/add-cart-btn.scss";
 @use "components/buttons/cart-btn.scss";
@@ -25,4 +27,8 @@ main {
 li,
 p {
   color: $text-color;
+}
+
+.container-social-media-list > li > * {
+  color: $brand-blue;
 }

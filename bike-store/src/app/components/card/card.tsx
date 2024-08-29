@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function AddCartButton(props: any) {
+export default function Card(props: any) {
   return (
     <div className="card">
       <Link href={`/product/${props.id}`}>
