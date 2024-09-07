@@ -1,0 +1,11 @@
+@use "../utils/variables" as *;
+
+.search-form-input {
+  @apply flex justify-between min-[450px]:justify-center;
+
+  .search-input {
+    color: $text-color;
+    background-color: #f3f5f6;
+    @apply w-64 md:w-[352px] h-[44px] py-2 px-4 rounded-lg;
+  }
+}

@@ -1,0 +1,32 @@
+@use "../utils/variables" as *;
+
+.card {
+  @apply w-40 md:w-52 lg:w-64;
+
+  .container-card-image {
+    @apply w-auto h-60 md:h-72 lg:h-80;
+
+    .card-image {
+      @apply border-2 w-full h-full object-cover;
+    }
+  }
+  .container-info-product-card {
+    h2 {
+      font-size: 12px;
+      margin: 6px 0;
+    }
+
+    ul {
+      font-size: 14px;
+      @apply flex flex-col lg:flex-row justify-between;
+
+      li {
+        color: $black-color;
+      }
+
+      li:nth-child(2) {
+        font-weight: 600;
+      }
+    }
+  }
+}

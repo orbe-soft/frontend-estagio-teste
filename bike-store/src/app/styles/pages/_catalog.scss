@@ -1,0 +1,14 @@
+@import "../utils/mixins";
+
+.container-brand-nav {
+  @include nav-container;
+  @apply grid grid-cols-1 gap-4 md:flex md:justify-between;
+}
+
+.products-list {
+  @apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-9;
+
+  .container-card {
+    @apply w-full;
+  }
+}

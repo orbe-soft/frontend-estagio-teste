@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /cart
+
+# Host
+Host: https://bike-store-eight.vercel.app/
+
+# Sitemaps
+Sitemap: https://bike-store-eight.vercel.app/sitemap.xml

@@ -1,0 +1,27 @@
+@use "../utils/variables" as *;
+
+header {
+  background-color: $white-color;
+  @apply flex min-[450px]:justify-around items-center p-2 flex-wrap justify-between content-center;
+
+  .container-logo {
+    flex: 0 0 auto;
+    .logo {
+      width: 104px;
+      height: auto;
+    }
+  }
+
+  .container-search {
+    flex: 0 0 auto;
+  }
+
+  .container-search {
+    flex: 1 0 auto;
+    @apply order-1 pt-4 min-[450px]:order-none min-[450px]:p-0 min-[450px]:flex-grow-0;
+  }
+
+  .container-cart-btn {
+    flex: 0 0 auto;
+  }
+}
